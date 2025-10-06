@@ -1,7 +1,43 @@
-#  Rotating and Adjusting Brightness
+import cv2
 
-# Rotate the image by 45 degrees around its center
-  # rotate by 45 degrees
+import matplotlib.pyplot as plt
 
-# Increase brightness by adding 50 to all pixel values
-# Use cv2.add to avoid negative values or overflow
+
+image = cv2.imread('example.jpg')
+
+
+# Convert BGR to RGB
+
+image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+plt.imshow(image_rgb)
+
+plt.title("RGB Image")
+
+plt.show()
+
+
+# Convert to Grayscale
+
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+plt.imshow(gray_image, cmap='gray')
+
+plt.title("Grayscale Image")
+
+plt.show()
+
+
+# Cropping the image
+
+# Assume we know the region we want: rows 100 to 300, columns 200 to 400
+
+cropped_image = image[100:300, 200:400]
+
+cropped_rgb = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2RGB)
+
+plt.imshow(cropped_rgb)
+
+plt.title("Cropped Region")
+
+plt.show()
